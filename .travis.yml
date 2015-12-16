@@ -8,13 +8,16 @@ matrix:
     - php: 5.6
       env:
         - EXECUTE_CS_CHECK=true
+        - REMOVE_XDEBUG=true
     - php: 7
+      env:
+        - REMOVE_XDEBUG=true
     - php: hhvm
   allow_failures:
     - php: hhvm
 
 before_install:
-  - phpenv config-rm xdebug.ini
+  - if [[ $REMOVE_XDEBUG == 'true' ]]; then phpenv config-rm xdebug.ini ; fi
   - composer self-update
 
 install:
