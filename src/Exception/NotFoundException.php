@@ -1,6 +1,6 @@
 <?php
 
-namespace Interop\Container\Pimple\Exception;
+namespace Xtreamwayz\Pimple\Exception;
 
 use Interop\Container\Exception\NotFoundException as NotFoundExceptionInterface;
 

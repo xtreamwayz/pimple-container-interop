@@ -2,7 +2,7 @@
 
 namespace Interop\Container\PimpleTests;
 
-use Interop\Container\Pimple\Container;
+use Xtreamwayz\Pimple\Container;
 
 class ContainerTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,7 +29,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Interop\Container\Pimple\Exception\NotFoundException
+     * @expectedException \Xtreamwayz\Pimple\Exception\NotFoundException
      */
     public function testNotFoundException()
     {

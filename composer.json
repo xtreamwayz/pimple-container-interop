@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Interop\\Container\\Pimple\\": "src/"
+            "Xtreamwayz\\Pimple\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Interop\\Container\\PimpleTests\\": "tests/"
+            "Xtreamwayz\\PimpleTest\\": "tests/"
         }
     },
     "scripts": {

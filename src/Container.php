@@ -1,11 +1,11 @@
 <?php
 
-namespace Interop\Container\Pimple;
+namespace Xtreamwayz\Pimple;
 
 use Interop\Container\ContainerInterface;
-use Interop\Container\Pimple\Exception\ContainerException;
-use Interop\Container\Pimple\Exception\NotFoundException;
 use Pimple\Container as Pimple;
+use Xtreamwayz\Pimple\Exception\ContainerException;
+use Xtreamwayz\Pimple\Exception\NotFoundException;
 
 class Container extends Pimple implements ContainerInterface
 {
