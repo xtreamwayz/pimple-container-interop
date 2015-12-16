@@ -21,12 +21,27 @@ containers. They can be added with the ``delegate($container)`` function.
 
 ```php
 $container = new Xtreamwayz\Pimple\Container;
+$container['hi'] = 'welcome';
 
-$delegate  = new Acme\Container\DelegateContainer;
-$container->delegate($delegate);
+$delegate1 = new Acme\Container\DelegateContainer;
+$delegate1['foo'] = 'bar';
+$container->delegate($delegate1);
 
 $delegate2 = new Xtreamwayz\Pimple\Container;
-$container->delegate($delegate);
+$delegate2['baz'] = 'qux';
+$container->delegate($delegate2);
+
+// Resolve dependency from main $container
+$container->has('hi'); // true
+$container->get('hi'); // returns 'welcome';
+
+// Resolve dependency from $delegate1
+$container->has('foo'); // true
+$container->get('foo'); // returns 'bar';
+
+// Resolve dependency from $delegate2
+$container->has('baz'); // true
+$container->get('baz'); // returns 'qux';
 ```
 
 Once the delegate has been registered and a lookup is not resolved in the main container, it tries the ``has`` and
