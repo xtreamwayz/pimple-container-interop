@@ -1,6 +1,7 @@
 # Pimple-container-interop
 
-This container extends the Pimple 3 container. It also adds the *delegate lookup feature* from container-interop.
+This container extends the Pimple 3 container. It also adds the *delegate lookup feature* from
+[container-interop](https://github.com/container-interop/container-interop).
 
 ## Usage
 
