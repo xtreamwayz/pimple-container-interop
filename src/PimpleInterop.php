@@ -9,11 +9,6 @@ use Interop\Container\Pimple\Exception\NotFoundException;
 
 class PimpleInterop extends Pimple implements ContainerInterface
 {
-    public function offsetExists($id)
-    {
-        return parent::offsetExists($id);
-    }
-
     public function offsetGet($id)
     {
         try {
