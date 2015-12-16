@@ -7,7 +7,7 @@ use Interop\Container\Pimple\Exception\ContainerException;
 use Interop\Container\Pimple\Exception\NotFoundException;
 use Pimple\Container as Pimple;
 
-class PimpleInterop extends Pimple implements ContainerInterface
+class Container extends Pimple implements ContainerInterface
 {
     /**
      * @var ContainerInterface[]

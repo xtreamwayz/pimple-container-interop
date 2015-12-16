@@ -2,18 +2,18 @@
 
 namespace Interop\Container\PimpleTests;
 
-use Interop\Container\Pimple\PimpleInterop;
+use Interop\Container\Pimple\Container;
 
 class ContainerTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var PimpleInterop
+     * @var Container
      */
     private $container;
 
     public function setup()
     {
-        $this->container = new PimpleInterop();
+        $this->container = new Container();
         $this->container['foo'] = 'bar';
     }
 
@@ -38,7 +38,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
     public function testDelegatedHas()
     {
-        $delegate = new PimpleInterop();
+        $delegate = new Container();
         $delegate['baz'] = 'qux';
         $this->container->delegate($delegate);
 
@@ -48,7 +48,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
     public function testDelegatedGet()
     {
-        $delegate = new PimpleInterop();
+        $delegate = new Container();
         $delegate['baz'] = 'qux';
         $this->container->delegate($delegate);
 
