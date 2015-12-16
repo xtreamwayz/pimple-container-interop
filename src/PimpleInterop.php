@@ -28,7 +28,7 @@ class PimpleInterop extends Pimple implements ContainerInterface
     {
         try {
             // Try this container
-            if ($this->has($id)) {
+            if ($this->offsetExists($id)) {
                 return $this->offsetGet($id);
             }
 

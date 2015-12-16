@@ -6,20 +6,52 @@ use Interop\Container\Pimple\PimpleInterop;
 
 class ContainerTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var PimpleInterop
+     */
+    private $container;
+
+    public function setup()
+    {
+        $this->container = new PimpleInterop();
+        $this->container['foo'] = 'bar';
+    }
+
     public function testHas()
     {
-        $container = new PimpleInterop();
-        $container['foo'] = 'bar';
-
-        $this->assertTrue($container->has('foo'));
-        $this->assertFalse($container->has('wow'));
+        $this->assertTrue($this->container->has('foo'));
+        $this->assertFalse($this->container->has('wow'));
     }
 
     public function testGet()
     {
-        $container = new PimpleInterop();
-        $container['foo'] = 'bar';
+        $this->assertEquals('bar', $this->container->get('foo'));
+    }
 
-        $this->assertEquals('bar', $container->get('foo'));
+    /**
+     * @expectedException \Interop\Container\Pimple\Exception\NotFoundException
+     */
+    public function testNotFoundException()
+    {
+        $this->container->get('invalid');
+    }
+
+    public function testDelegatedHas()
+    {
+        $delegate = new PimpleInterop();
+        $delegate['baz'] = 'qux';
+        $this->container->delegate($delegate);
+
+        $this->assertTrue($this->container->has('baz'));
+        $this->assertFalse($this->container->has('wow'));
+    }
+
+    public function testDelegatedGet()
+    {
+        $delegate = new PimpleInterop();
+        $delegate['baz'] = 'qux';
+        $this->container->delegate($delegate);
+
+        $this->assertEquals('qux', $this->container->get('baz'));
     }
 }
