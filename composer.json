@@ -1,0 +1,28 @@
+{
+	"name" : "xtreamwayz/pimple-interop",
+	"description" : "This project is a very simple extension to the Pimple microframework. It adds to Pimple 3 compatibility with the container-interop APIs.",
+	"authors" : [{
+			"name" : "Geert Eltink",
+			"homepage" : "https://xtreamwayz.com"
+		}
+	],
+	"keywords" : [
+		"dependency injection",
+		"DI",
+		"Pimple",
+		"container-interop"
+	],
+	"license" : "MIT",
+	"require" : {
+		"container-interop/container-interop" : "^1.0",
+		"pimple/pimple" : "^3.0"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "^5.0"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"Interop\\Container\\Pimple" : "src/"
+		}
+	}
+}
