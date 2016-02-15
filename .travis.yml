@@ -28,4 +28,6 @@ script:
   - if [[ $EXECUTE_CS_CHECK == 'true' ]]; then composer cs ; fi
 
 notifications:
-  email: true
+  email: false
+  slack:
+    secure: uXaCWf3JKSnJToKv263tOj7RyKg8qTZ8gpL/16IebO3W8rzOjJAUmgdXKzNq+/kIA+6G4UEPu7FzqOokDSMZhCTPgjUQX/rch3UM0ZTiSpI0U3iOuXmVHXgoCCesnfBls8hpsymYIotelqS268axaXAisda8W87PymkYlmfCHoBm/aKVaBT3p6X3L5Xbjw8Zpp45tM8egwFN4oISj5ctUFlMp/aC2dUtlYtjpPKKIJ4jlOZEkrAAiolYrjRiFodhJzIFeRisEMn5M4V88c2SjjuvEixbvPkYdJsudtGdQzl/zoJwjHA1YP8kQAwnbETJGOnkzhfu+RqXna7OOWZNPZJ/yhCweEMTHu6ln5Vj8crXDMligZ/lCG1qkzdMhJWqxn/vUaEWSn/7re7J6UUg326306mdTL3oPS2B1TWO4+aJgWuUztzgWwvcEFOKyyP6S++kN3hfte664r+kQ681YnnGe65+DeSp6HyKtojwgdgWP07hKJiHWCUwSBQXiPN4wv4zaFXSz4FSAiau9pFX/0+ov03YNH2biBGCBtNyru8y7eCOGL1xSI3LhfdSKC54JV8goGugxIfFm3IaDzYK+uAx4dukwn1X34i3L/Ha25pROoa1qP0i5hTBGeNozmv3Ruf+yv03yjWLWcoZ+fOcyhwob2BJ66OnN+qG6+7/orw=
