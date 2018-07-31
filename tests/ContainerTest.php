@@ -2,9 +2,10 @@
 
 namespace Interop\Container\PimpleTests;
 
+use PHPUnit\Framework\TestCase;
 use Xtreamwayz\Pimple\Container;
 
-class ContainerTest extends \PHPUnit_Framework_TestCase
+class ContainerTest extends TestCase
 {
     /**
      * @var Container
