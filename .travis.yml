@@ -29,7 +29,7 @@ before_install:
   - composer self-update
 
 install:
-  - travis_retry composer install --ansi --no-interaction --no-scripts --no-suggest --prefer-dist
+  - travis_retry composer update --ansi --no-interaction --no-scripts --no-suggest --prefer-dist
 
 script:
   - composer test
