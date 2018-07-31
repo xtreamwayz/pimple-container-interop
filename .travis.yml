@@ -2,32 +2,37 @@ sudo: false
 
 language: php
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  global:
+    - COMPOSER_ARGS="--ansi --no-interaction --no-scripts --no-suggest --prefer-dist"
+
 matrix:
-  fast_finish: true
   include:
     - php: 5.6
       env:
-        - EXECUTE_CS_CHECK=true
-        - REMOVE_XDEBUG=true
+        - CS_CHECK=true
     - php: 7
-      env:
-        - REMOVE_XDEBUG=true
+    - php: 7.1
+    - php: 7.2
+    - php: nightly
     - php: hhvm
   allow_failures:
+    - php: nightly
     - php: hhvm
 
 before_install:
-  - if [[ $REMOVE_XDEBUG == 'true' ]]; then phpenv config-rm xdebug.ini ; fi
   - composer self-update
 
 install:
-  - travis_retry composer install --no-interaction --ignore-platform-reqs --prefer-source --no-scripts
+  - travis_retry composer update --ansi --no-interaction --no-scripts --no-suggest --prefer-dist
 
 script:
   - composer test
-  - if [[ $EXECUTE_CS_CHECK == 'true' ]]; then composer cs ; fi
+  - if [[ $CS_CHECK == 'true' ]]; then composer cs ; fi
 
 notifications:
   email: false
-  slack:
-    secure: uXaCWf3JKSnJToKv263tOj7RyKg8qTZ8gpL/16IebO3W8rzOjJAUmgdXKzNq+/kIA+6G4UEPu7FzqOokDSMZhCTPgjUQX/rch3UM0ZTiSpI0U3iOuXmVHXgoCCesnfBls8hpsymYIotelqS268axaXAisda8W87PymkYlmfCHoBm/aKVaBT3p6X3L5Xbjw8Zpp45tM8egwFN4oISj5ctUFlMp/aC2dUtlYtjpPKKIJ4jlOZEkrAAiolYrjRiFodhJzIFeRisEMn5M4V88c2SjjuvEixbvPkYdJsudtGdQzl/zoJwjHA1YP8kQAwnbETJGOnkzhfu+RqXna7OOWZNPZJ/yhCweEMTHu6ln5Vj8crXDMligZ/lCG1qkzdMhJWqxn/vUaEWSn/7re7J6UUg326306mdTL3oPS2B1TWO4+aJgWuUztzgWwvcEFOKyyP6S++kN3hfte664r+kQ681YnnGe65+DeSp6HyKtojwgdgWP07hKJiHWCUwSBQXiPN4wv4zaFXSz4FSAiau9pFX/0+ov03YNH2biBGCBtNyru8y7eCOGL1xSI3LhfdSKC54JV8goGugxIfFm3IaDzYK+uAx4dukwn1X34i3L/Ha25pROoa1qP0i5hTBGeNozmv3Ruf+yv03yjWLWcoZ+fOcyhwob2BJ66OnN+qG6+7/orw=
