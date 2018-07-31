@@ -2,30 +2,38 @@ sudo: false
 
 language: php
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  global:
+    - COMPOSER_ARGS="--ansi --no-interaction --no-scripts --no-suggest --prefer-dist"
+
 matrix:
   fast_finish: true
   include:
     - php: 5.6
       env:
-        - EXECUTE_CS_CHECK=true
-        - REMOVE_XDEBUG=true
+        - CS_CHECK=true
     - php: 7
-      env:
-        - REMOVE_XDEBUG=true
+    - php: 7.1
+    - php: 7.2
+    - php: nightly
     - php: hhvm
   allow_failures:
+    - php: nightly
     - php: hhvm
 
 before_install:
-  - if [[ $REMOVE_XDEBUG == 'true' ]]; then phpenv config-rm xdebug.ini ; fi
   - composer self-update
 
 install:
-  - travis_retry composer install --no-interaction --ignore-platform-reqs --prefer-source --no-scripts
+  - travis_retry composer install --ansi --no-interaction --no-scripts --no-suggest --prefer-dist
 
 script:
   - composer test
-  - if [[ $EXECUTE_CS_CHECK == 'true' ]]; then composer cs ; fi
+  - if [[ $CS_CHECK == 'true' ]]; then composer cs ; fi
 
 notifications:
   email: false
