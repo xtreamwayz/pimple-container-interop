@@ -1,6 +1,10 @@
-# Pimple-container-interop
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
-[![Build Status](https://travis-ci.com/xtreamwayz/pimple-container-interop.svg?branch=master)](https://travis-ci.com/xtreamwayz/pimple-container-interop)
+Thank you so much for being interested in this project! Open Source is rewarding, but it can also be exhausting. Therefor this code is provided as-is, and is currently not actively maintained. We invite you to peruse the code and even use it in your next project, provided you follow the included license!
+
+No guarantee of support for the code is provided, and there is no promise that pull requests will be reviewed or merged. It’s open source, so forking is allowed; just be sure to give credit where it’s due!
+
+---
 
 This container extends the Pimple 3 container. It also adds the *delegate lookup feature* from
 [container-interop](https://github.com/container-interop/container-interop).
